@@ -8,23 +8,19 @@ This script automates the installation of a CS 1.6 server on Linux (Ubuntu). Fol
      sudo apt install unzip
      ```
 
-2. **Download the Script**:
-   - You can use the script provided by the GitHub repository. It simplifies the installation process by handling various components.
-   - Download the script using `wget` or any other method.
-
-3. **Set Script Permissions**:
+2. **Set Script Permissions**:
    - Make the script executable by running:
      ```
      chmod +x install.sh
      ```
 
-4. **Run the Script**:
+3. **Run the Script**:
    - Execute the script to set up your server:
      ```
      ./install.sh
      ```
 
-5. **Customize Installation**:
+4. **Customize Installation**:
    - By default, the script installs the `steam_legacy` version of HLDS, `metamod-am`, and `AMXX 1.10`.
    - If you want to download the latest HLDS version, use the `--latest` parameter.
    - For ReHLDS, use the `--rehlds` parameter (which also installs `metamod-r`).
