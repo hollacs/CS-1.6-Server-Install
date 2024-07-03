@@ -88,6 +88,11 @@ while [ $retry -lt $max_retries ]; do
     retry=$((retry + 1))
 done
 
+if [ $retry -ge $max_retries ]; then
+    echo "Download HLDS failed."
+    exit 1
+fi
+
 cd $dest
 
 mkdir $downloaded_dir
