@@ -13,25 +13,25 @@ If you want to download the latest version of HLDS, add the following parameter:
 ```
 --latest
 ```
-
+<br>
 
 To install with `ReHLDS`, add parameter: (it will also install the `metamod-r` instead of `metamod-am`)
 ```
 --rehlds
 ```
-
+<br>
 
 To install with `ReGameDLL` and `ReAPI`, add parameter: (it will also install the `ReHLDS` and `metamod-r`)
 ```
 --regamedll
 ```
-
+<br>
 
 Example command: (Install `ReHLDS + ReGameDLL + ReAPI + AMXX 1.10` to the `./csds` directory)
 ```console
 ./install.sh --regamedll ./csds
 ```
-
+<br>
 
 **Customize the download links**: Modify the download links at the beginning of the script to your own links..
 
