@@ -8,18 +8,18 @@ This script automates the installation of a CS 1.6 server on Linux (Ubuntu). Fol
 
 ### Parameters:
 
-By default, the scirpt downloads the steam_legacy version of HLDS, metamod-am and AMXX 1.10
+By default, the scirpt will install the steam_legacy version of `HLDS`, `metamod-am` and `AMXX 1.10`
 If you want to download the latest version of HLDS, add the following parameter:
 ```
 --latest
 ```
 
-To download ReHLDS, add parameter: (it will also download the metamod-r instead of metamod-am)
+To install with `ReHLDS`, add parameter: (it will also install the `metamod-r` instead of `metamod-am`)
 ```
 --rehlds
 ```
 
-To download ReGameDLL and ReAPI, add parameter: (it will also download the ReHLDS and metamod-r)
+To install with `ReGameDLL` and `ReAPI`, add parameter: (it will also install the `ReHLDS` and `metamod-r`)
 ```
 --regamedll
 ```
