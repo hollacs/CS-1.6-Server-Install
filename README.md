@@ -2,37 +2,38 @@
 
 This script automates the installation of a CS 1.6 server on Linux (Ubuntu). Follow these steps:
 
-1. **Ensure required packages are installed**: Make sure the `unzip` package is installed. If not, run: `apt install unzip`.
-2. **Set script permissions**: Make the script executable with: `chmod +x install.sh`.
-3. **Run the script**: Execute the script: `./install.sh`. It will handle the entire setup process.
+1. **Ensure Required Packages**:
+   - First, make sure the `unzip` package is installed. If it's not, run the following command:
+     ```
+     sudo apt install unzip
+     ```
 
-### Parameters:
+2. **Download the Script**:
+   - You can use the script provided by the GitHub repository. It simplifies the installation process by handling various components.
+   - Download the script using `wget` or any other method.
 
-By default, the scirpt will install the steam_legacy version of `HLDS`, `metamod-am` and `AMXX 1.10`
-If you want to download the latest version of HLDS, add the following parameter:
-```
---latest
-```
-<br>
+3. **Set Script Permissions**:
+   - Make the script executable by running:
+     ```
+     chmod +x install.sh
+     ```
 
-To install with `ReHLDS`, add parameter: (it will also install the `metamod-r` instead of `metamod-am`)
-```
---rehlds
-```
-<br>
+4. **Run the Script**:
+   - Execute the script to set up your server:
+     ```
+     ./install.sh
+     ```
 
-To install with `ReGameDLL` and `ReAPI`, add parameter: (it will also install the `ReHLDS` and `metamod-r`)
-```
---regamedll
-```
-<br>
+5. **Customize Installation**:
+   - By default, the script installs the `steam_legacy` version of HLDS, `metamod-am`, and `AMXX 1.10`.
+   - If you want to download the latest HLDS version, use the `--latest` parameter.
+   - For ReHLDS, use the `--rehlds` parameter (which also installs `metamod-r`).
+   - To include ReGameDLL and ReAPI, use the `--regamedll` parameter (which also installs `ReHLDS` and `metamod-r`).
 
-Example command: (Install `ReHLDS + ReGameDLL + ReAPI + AMXX 1.10` to the `./csds` directory)
-```console
-./install.sh --regamedll ./csds
-```
-<br>
+6. **Example Command**:
+   - To install `ReHLDS, ReGameDLL, ReAPI, and AMXX 1.10` into the `./csds` directory, run:
+     ```
+     ./install.sh --regamedll ./csds
+     ```
 
-**Customize the download links**: Modify the download links at the beginning of the script to your own links..
-
-Enjoy setting up your server!
+You can customize the download links in the script according to your needs. Enjoy setting up your CS 1.6 server! 😊🎮
