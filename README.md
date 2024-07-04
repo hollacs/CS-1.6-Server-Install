@@ -27,7 +27,7 @@ This script automates the installation of a CS 1.6 server on Linux (Ubuntu). Fol
    - To include ReGameDLL and ReAPI, use the `--regamedll` parameter (which also installs **ReHLDS** and **metamod-r**).
 
 6. **Example Command**:
-   - To install **ReHLDS, ReGameDLL，Metamod-R, ReAPI, and AMXX 1.10**, run: (will be installed into the `./csds` directory)
+   - The following command will install **ReHLDS, ReGameDLL，Metamod-R, ReAPI, and AMXX 1.10** into the `./csds` directory.
      ```
      ./install.sh --regamedll ./csds
      ```
