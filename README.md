@@ -36,19 +36,19 @@ This script automates the installation of a CS 1.6 server. Follow these steps:
 
 4. **Customize Installation**:
 
-   By default, the script installs the `steam_legacy` version of HLDS, metamod-am, and AMXX 1.10.
+   By default, the script installs the `steam_legacy` version of **HLDS**, **MetaMod-AM**, and **AMXX 1.10**.
 
    If you want to download the latest HLDS version, use the `--latest` parameter.
 
-   For ReHLDS, use the `--rehlds` parameter (which also installs **metamod-r**).
+   For **ReHLDS**, use the `--rehlds` parameter (which also installs **MetaMod-R**).
 
-   To include ReGameDLL and ReAPI, use the `--regamedll` parameter (which also installs **ReHLDS** and **metamod-r**).
-   
+   To include **ReGameDLL** and **ReAPI**, use the `--regamedll` parameter (which also installs **ReHLDS** and **MetaMod-R**).
+
    <br>
 
 6. **Example Command**:
 
-   The following command will install **ReHLDS, ReGameDLL，Metamod-R, ReAPI, and AMXX 1.10** into the `./csds` directory.
+   The following command will install **ReHLDS, ReGameDLL，MetaMod-R, ReAPI, and AMXX 1.10** into the `./csds` directory.
    ```
    ./install.sh --regamedll ./csds
    ```
