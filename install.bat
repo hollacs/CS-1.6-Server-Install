@@ -75,8 +75,8 @@ if errorlevel 1 (
 )
 if exist %user_input%\ (
 	dir /b /s /a %user_input% | findstr .>nul && (
-	  echo Folder is not empty. Try another name.
-	  goto input_folder_again
+		echo Folder is not empty. Try another name.
+		goto input_folder_again
 	)
 )
 
