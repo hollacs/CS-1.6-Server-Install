@@ -126,7 +126,7 @@ if not exist steamcmd\steamapps\common\Half-Life\hlds.exe goto download_hlds
 echo.
 echo We detected that you previously installed HLDS using SteamCMD.
 echo Would you like to skip SteamCMD file validation?
-echo Enter 'y' for yes, 'n' for no (default is 'yes')
+echo Enter 'y' for yes or 'n' for no (default is 'yes')
 set /p "user_answer=Your answer: "
 
 if "%user_answer%" == "y" goto hlds_downloaded
