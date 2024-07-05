@@ -79,7 +79,7 @@ fi
 echo "Downloading HLDS..."
 retry=0
 while [ $retry -lt $max_retries ]; do
-    if steamcmd +login anonymous +force_install_dir $dest +app_update 90 $beta +quit | grep -q 'Success'; then
+    if steamcmd +login anonymous +force_install_dir $dest +app_update 90 $beta validate +quit | grep -q 'Success'; then
         echo "Success!";
         break;
     fi
