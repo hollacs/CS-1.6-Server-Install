@@ -126,7 +126,7 @@ else
     wget $metamod_url
     echo "Extracting Metamod..."
     unzip metamod-*-am.zip -d metamod
-    cp -rf ./metamod/addons/* ../cstrike/addons
+    cp -rf ./metamod/addons ../cstrike
     echo "Editing liblist.gam"
     sed -i 's/gamedll_linux.*/gamedll_linux "addons\/metamod\/dlls\/metamod.so"/' ../cstrike/liblist.gam
 fi
@@ -138,7 +138,7 @@ if $regamedll; then
     wget $reapi_url
     unzip regamedll-bin-*.zip 'bin/linux32/*' -d regamedll
     unzip reapi-bin-*.zip -d ./regamedll/bin/linux32/cstrike
-    cp -rf ./regamedll/bin/linux32/* ../
+    cp -rf ./regamedll/bin/linux32/cstrike ../
 fi
 
 # AMXModX
@@ -149,7 +149,7 @@ echo "Extracting AMXModX..."
 mkdir amxx
 tar -zxf amxmodx-*-base-linux.tar.gz -C amxx
 tar --overwrite -zxf amxmodx-*-cstrike-linux.tar.gz -C amxx
-cp -rf ./amxx/* ../cstrike
+cp -rf ./amxx/addons ../cstrike
 echo "Creating metamod/plugins.ini"
 echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> ../cstrike/addons/metamod/plugins.ini
 
