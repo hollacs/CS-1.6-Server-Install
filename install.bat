@@ -62,9 +62,9 @@ goto input_again
 
 :input_folder
 echo.
-echo Choose a folder name where you want to install it
-echo (a new folder will be created at the currect location)
-echo **Only alphabets, numeric and underscore with no spaces**
+echo Choose a folder name for installation.
+echo (A new folder will be created in the current location)
+echo **Use only alphabets, numbers, and underscores without any spaces.**
 :input_folder_again
 set /p "user_input=Enter a name: "
 
@@ -84,8 +84,8 @@ set "install_dir=%user_input%"
 
 
 echo.
-echo Clean up files after installation is finished?
-echo (0 = only extracted files *default*) (1 = all) (2 = all, included steamcmd)
+echo Clean up files after installation is completed?
+echo (0 = Only temp files) (1 = All) (2 = All, included steamcmd) (default is 0)
 :input_cleanmode_again
 set /p "clean_mode=Enter a number: "
 
@@ -95,12 +95,12 @@ if not defined clean_mode (
 )
 
 if %clean_mode% lss 0 (
-	ecsho Invalid input. Only [0, 1, 2] is accepted, Try again.
+	echo Invalid input. Only values 0, 1, or 2 are accepted. Please try again.
 	goto input_cleanmode_again
 )
 
 if %clean_mode% gtr 2 (
-	echo Invalid input. Only [0, 1, 2] is accepted, Try again.
+	echo Invalid input. Only values 0, 1, or 2 are accepted. Please try again.
 	goto input_cleanmode_agains
 )
 
@@ -124,9 +124,9 @@ if not exist steamcmd\steamcmd.exe (
 if not exist steamcmd\steamapps\common\Half-Life\hlds.exe goto download_hlds
 
 echo.
-echo We detected that you previously installed HLDS using SteamCMD.
+echo We've detected that you previously installed HLDS using SteamCMD with this script.
 echo Would you like to skip SteamCMD file validation?
-echo Enter 'y' for yes or 'n' for no (default is 'yes')
+echo Enter 'y' for YES or 'n' for NO (default is 'y').
 set /p "user_answer=Your answer: "
 
 if "%user_answer%" == "y" goto hlds_downloaded
