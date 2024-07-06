@@ -30,12 +30,12 @@ max_retries=3
 dest=${PWD}
 rehlds=false
 regamedll=false
-beta="-beta steam_legacy"
+beta=" -beta steam_legacy"
 
 for i in "$@"; do
     case $i in
         --latest)
-            beta=""
+            beta=" "
             shift
         ;;
         --rehlds)
@@ -61,7 +61,10 @@ if [ -n $1 ]; then
     if [ "${dest%"${dest#?}"}" = "." ]; then
         dest="${PWD}${dest#?}"
     fi
-    echo "dest set to $dest"
+fi
+
+if [ -z $dest ]; then
+    dest="${PWD}${dest#?}"
 fi
 
 if ! lsb_release -a | grep -q 'Ubuntu'; then
@@ -79,7 +82,7 @@ fi
 echo "Downloading HLDS..."
 retry=0
 while [ $retry -lt $max_retries ]; do
-    if steamcmd +login anonymous +force_install_dir $dest +app_update 90 $beta validate +quit | grep -q 'Success'; then
+    if steamcmd +login anonymous +force_install_dir $dest +app_update 90$beta validate +quit | grep -q 'Success'; then
         echo "Success!";
         break;
     fi
