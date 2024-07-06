@@ -26,14 +26,6 @@ This script automates the installation of a CS 1.6 server. Follow these steps:
    ```
    <br>
 
-3. **Run the Script**:
-
-   Execute the script to set up your server:
-   ```
-   ./install.sh
-   ```
-   <br>
-
 - **Customize Installation**:
 
    By default, the script installs the `steam_legacy` version of **HLDS** with **MetaMod-AM**, and **AMXX 1.10**.
@@ -44,6 +36,14 @@ This script automates the installation of a CS 1.6 server. Follow these steps:
 
    To include **ReGameDLL** and **ReAPI**, use the `--regamedll` parameter (which also installs **ReHLDS** and **MetaMod-R**).
 
+   <br>
+
+3. **Run the Script**:
+
+   Execute the script to set up your server:
+   ```
+   ./install.sh
+   ```
    <br>
 
 - **Example Command**:
