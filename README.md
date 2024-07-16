@@ -17,7 +17,8 @@ Therefore, I uploaded the legacy gamedll to this repository (the script will aut
 1. **Install SteamCmd**
 
    First, You have to install SteamCmd, follow [this instruction](https://developer.valvesoftware.com/wiki/SteamCMD) that made by Valve
-
+   <br>
+   
 2. **Ensure Required Packages**:
 
    Make sure the `unzip` package is installed. If it's not, run the following command: (Ubuntu)
