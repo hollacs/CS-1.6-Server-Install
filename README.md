@@ -2,6 +2,10 @@
 
 This script automates the installation of a CS 1.6 server. Follow these steps:
 
+**I found that adding `-beta steam_legacy` in steamcmd won't download the legacy gamedll. <br> 
+The new gamedll caused amxmodx to not function correctly. <br>
+Therefore, I uploaded the legacy gamedll to this repository (the script will automatically download this**
+
 ## Windows
 
 1. Put the **install.bat** to a empty folder.
