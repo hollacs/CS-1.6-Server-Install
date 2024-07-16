@@ -25,7 +25,7 @@ amxmodx_cstrike_url="https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git546
 legacy_gamedll_url="https://raw.githubusercontent.com/hollacs/CS-1.6-Server-Install/main/dlls/cs.so"
 
 # Download folder name
-downloaded_dir=".downloaded_files"
+downloaded_dir=".downloads"
 
 # Max steamcmd download retries
 max_retry=3
