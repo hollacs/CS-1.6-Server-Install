@@ -14,15 +14,18 @@ Therefore, I uploaded the legacy gamedll to this repository (the script will aut
 
 ## Linux
 
-1. **Ensure Required Packages**:
+1. **Install SteamCmd**
+   First, You have to install SteamCmd, follow [this instruction](https://developer.valvesoftware.com/wiki/SteamCMD) that made by Valve
 
-   First, make sure the `unzip` package is installed. If it's not, run the following command:
+2. **Ensure Required Packages**:
+
+   Make sure the `unzip` package is installed. If it's not, run the following command: (Ubuntu)
    ```
    sudo apt install unzip
    ```
    <br>
 
-2. **Set Script Permissions**:
+3. **Set Script Permissions**:
 
    Make the script executable by running:
    ```
@@ -34,15 +37,13 @@ Therefore, I uploaded the legacy gamedll to this repository (the script will aut
 
    By default, the script installs the `steam_legacy` version of **HLDS** with **MetaMod-AM**, and **AMXX 1.10**.
 
-   If you want to download the latest HLDS version, use the `--latest` parameter.
+   If you want to install **ReHLDS**, use the `--rehlds` parameter (which also installs **MetaMod-R** instead of **MetaMod-AM**).
 
-   For **ReHLDS**, use the `--rehlds` parameter (which also installs **MetaMod-R**).
-
-   To include **ReGameDLL** and **ReAPI**, use the `--regamedll` parameter (which also installs **ReHLDS** and **MetaMod-R**).
+   To install with **ReGameDLL**, use the `--regamedll` parameter (which also installs **ReHLDS**, **MetaMod-R** and **ReAPI**).
 
    <br>
 
-3. **Run the Script**:
+4. **Run the Script**:
 
    Execute the script to set up your server:
    ```
