@@ -212,7 +212,7 @@ if %regamedll% == 1 (
 	if not exist mp.dll (
 		powershell Invoke-WebRequest -Uri %legacy_gamedll_url% -OutFile mp.dll
 	)
-	echo f | xcopy /F /Y mp.dll "%install_dir%\cstrike\dlls\mp.dll"
+	echo f | xcopy /F /Y mp.dll "..\%install_dir%\cstrike\dlls\mp.dll"
 )
 
 echo Installing AMXModX...
