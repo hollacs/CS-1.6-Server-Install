@@ -15,6 +15,7 @@ Therefore, I uploaded the legacy gamedll to this repository (the script will aut
 ## Linux
 
 1. **Install SteamCmd**
+
    First, You have to install SteamCmd, follow [this instruction](https://developer.valvesoftware.com/wiki/SteamCMD) that made by Valve
 
 2. **Ensure Required Packages**:
