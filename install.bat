@@ -25,6 +25,8 @@ set amxmodx_base_url="https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git54
 :: AMXModX CStrike URL
 set amxmodx_cstrike_url="https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5467-cstrike-windows.zip"
 
+set legacy_gamedll_url="https://raw.githubusercontent.com/hollacs/CS-1.6-Server-Install/main/dlls/mp.dll"
+
 :: Download folder name
 set download_dir=".downloads"
 
@@ -85,7 +87,7 @@ set "install_dir=%user_input%"
 
 echo.
 echo Clean up files after installation is completed?
-echo (0 = Only temp files) (1 = All) (2 = All, included steamcmd) (default is 0)
+echo (0 = Only temp files / 1 = All / 2 = All, included steamcmd) [default is 0]
 :input_cleanmode_again
 set /p "clean_mode=Enter a number: "
 
@@ -206,6 +208,11 @@ if %regamedll% == 1 (
 	if exist reapi\ rmdir reapi /s /q
 	powershell Expand-Archive reapi.zip -DestinationPath reapi
 	robocopy ".\reapi" "..\%install_dir%\cstrike" /E /SEC /COPY:DT /DCOPY:T
+) else (
+	if not exist mp.dll (
+		powershell Invoke-WebRequest -Uri %legacy_gamedll_url% -OutFile mp.dll
+	)
+	echo f | xcopy /F /Y mp.dll "%install_dir%\cstrike\dlls\mp.dll"
 )
 
 echo Installing AMXModX...
