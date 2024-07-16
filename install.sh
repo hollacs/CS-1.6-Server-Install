@@ -21,23 +21,21 @@ amxmodx_base_url="https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5467-b
 # AMXModX CStrike URL
 amxmodx_cstrike_url="https://www.amxmodx.org/amxxdrop/1.10/amxmodx-1.10.0-git5467-cstrike-linux.tar.gz"
 
+## Legacy GameDLL URL
+legacy_gamedll_url="https://raw.githubusercontent.com/hollacs/CS-1.6-Server-Install/main/dlls/cs.so"
+
 # Download folder name
 downloaded_dir=".downloaded_files"
 
 # Max steamcmd download retries
-max_retries=3
+max_retry=3
 
 dest=${PWD}
 rehlds=false
 regamedll=false
-beta=" -beta steam_legacy"
 
 for i in "$@"; do
     case $i in
-        --latest)
-            beta=" "
-            shift
-        ;;
         --rehlds)
             rehlds=true
             shift
@@ -67,32 +65,21 @@ if [ -z $dest ]; then
     dest="${PWD}${dest#?}"
 fi
 
-if ! lsb_release -a | grep -q 'Ubuntu'; then
-    echo "The script only supports Ubuntu."
-    exit 1
-fi
-
-if ! dpkg -l | grep steamcmd; then
-    echo "Installing steamcmd..."
-    sudo add-apt-repository -y multiverse; sudo dpkg --add-architecture i386; sudo apt update -y
-    sudo apt install -y steamcmd
-fi
-
 # download HLDS from steamcmd
 echo "Downloading HLDS..."
 retry=0
-while [ $retry -lt $max_retries ]; do
-    if steamcmd +login anonymous +force_install_dir $dest +app_update 90$beta validate +quit | grep -q 'Success'; then
-        echo "Success!";
+while [ $retry -lt $max_retry ]; do
+    if steamcmd +login anonymous +force_install_dir $dest +app_update 90 -beta steam_legacy validate +quit | grep -q 'Success'; then
+        echo "Downloaded!";
         break;
     fi
 
-    echo "Failed, Retrying...($retry/$max_retries)";
+    echo "Failed, Retrying...($retry/$max_retry)";
     retry=$((retry + 1))
 done
 
-if [ $retry -ge $max_retries ]; then
-    echo "Download HLDS failed."
+if [ $retry -ge $max_retry ]; then
+    echo "Failed to download HLDS from steamcmd."
     exit 1
 fi
 
@@ -108,7 +95,6 @@ if $rehlds; then
     echo "Extracting ReHLDS..."
     unzip rehlds-bin-*.zip 'bin/linux32/*' -d rehlds
     cp -rf ./rehlds/bin/linux32/* ../
-    chmod +x ../hlds_linux
 
     # Metamod-R
     echo "Downloading Metamod-R..."
@@ -139,6 +125,9 @@ if $regamedll; then
     unzip regamedll-bin-*.zip 'bin/linux32/*' -d regamedll
     unzip reapi-bin-*.zip -d ./regamedll/bin/linux32/cstrike
     cp -rf ./regamedll/bin/linux32/cstrike ../
+else
+    wget $legacy_gamedll_url
+    cp -f cs.so ../cstrike/dlls
 fi
 
 # AMXModX
@@ -152,6 +141,9 @@ tar --overwrite -zxf amxmodx-*-cstrike-linux.tar.gz -C amxx
 cp -rf ./amxx/addons ../cstrike
 echo "Creating metamod/plugins.ini"
 echo "linux addons/amxmodx/dlls/amxmodx_mm_i386.so" >> ../cstrike/addons/metamod/plugins.ini
+
+# Mark executeable
+chmod +x ../hlds_linux
 
 # Clean up downloaded files
 echo "Cleaning up..."
